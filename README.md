@@ -40,9 +40,9 @@ cd data
 rm -rf statedb && mkdir statedb
 ```
 
-## Step 5: Install the zkevm-node binary by following the below script
+#### Step 5: Install the zkevm-node binary by following the below script
 ```bash
-git clone https://github.com/0xPolygonHermez/zkevm-node.git`
+git clone https://github.com/0xPolygonHermez/zkevm-node.git
 cd zkevm-node
 git checkout release/v0.3.0
 make build
