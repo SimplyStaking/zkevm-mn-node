@@ -36,7 +36,8 @@ docker-compose up -d zkevm-state-db
 #### Step 4: Clear the statedb
 
 ```bash
-rm -rf ./data/statedb && mkdir statedb
+cd data
+rm -rf statedb && mkdir statedb
 ```
 
 ## Step 5: Install the zkevm-node binary by following the below script
@@ -45,14 +46,14 @@ git clone https://github.com/0xPolygonHermez/zkevm-node.git`
 cd zkevm-node
 git checkout release/v0.3.0
 make build
-mv dist/zkevm-node ~
+mv dist/zkevm-node ~/zkevm-node-bin
 ```
 
 #### Step 6: Run the following commands to restore the db
 
 ```
 cd config/environments/mainnet
-nohup zkevm-node restore --cfg ./node.snapshot.config.toml -is ~/zkevmmainnetdbstate_1695050997_v0.3.0-1-g375bffaf_375bffaf.sql.tar.gz -ih ~/zkevmmainnetdbhash_1695053524_v0.3.0-1-g375bffaf_375bffaf.sql.tar.gz &
+nohup ~/zkevm-node-bin restore --cfg ./node.snapshot.config.toml -is ~/zkevmmainnetdbstate_1695050997_v0.3.0-1-g375bffaf_375bffaf.sql.tar.gz -ih ~/zkevmmainnetdbhash_1695053524_v0.3.0-1-g375bffaf_375bffaf.sql.tar.gz &
 ```
 
 #### Step 7: Spin up the other containers
