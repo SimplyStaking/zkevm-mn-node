@@ -42,9 +42,10 @@ WriteTimeout = "60s"
 MaxRequestsPerIPAndSecond = 5000
 SequencerNodeURI = "https://zkevm-rpc.com"
 EnableL2SuggestedGasPricePolling = false
-	[RPC.WebSockets]
-		Enabled = true
-		Port = 8546
+[RPC.WebSockets]
+Enabled = true
+Host = "0.0.0.0"
+Port = 8546
 
 [Synchronizer]
 SyncInterval = "2s"
