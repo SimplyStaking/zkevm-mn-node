@@ -3,14 +3,15 @@ Environment = "development" # "production" or "development"
 Level = "info"
 Outputs = ["stderr"]
 
-[StateDB]
-User = "state_user"
-Password = "state_password"
-Name = "state_db"
-Host = "zkevm-state-db"
-Port = "5432"
-EnableLog = false
-MaxConns = 200
+[State]
+        [State.DB]
+        User = "state_user"
+        Password = "state_password"
+        Name = "state_db"
+        Host = "zkevm-state-db"
+        Port = "5432"
+        EnableLog = false
+        MaxConns = 200
 
 [Pool]
 MaxTxBytesSize=100132
@@ -42,6 +43,10 @@ WriteTimeout = "60s"
 MaxRequestsPerIPAndSecond = 5000
 SequencerNodeURI = "https://zkevm-rpc.com"
 EnableL2SuggestedGasPricePolling = false
+BatchRequestsEnabled = true
+BatchRequestsLimit = 100
+MaxLogsCount = 10000
+MaxLogsBlockRange = 40000
 [RPC.WebSockets]
 Enabled = true
 Host = "0.0.0.0"
