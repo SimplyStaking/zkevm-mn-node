@@ -13,7 +13,7 @@ services:
         condition: service_healthy
       zkevm-sync:
         condition: service_started
-    image: hermeznetwork/zkevm-node:v0.3.1
+    image: hermeznetwork/zkevm-node:v0.4.1
     deploy:
       resources:
         limits:
@@ -38,7 +38,7 @@ services:
     depends_on:
       zkevm-state-db:
         condition: service_healthy
-    image: hermeznetwork/zkevm-node:v0.3.1
+    image: hermeznetwork/zkevm-node:v0.4.1
     ports:
       - 9092:9091 # needed if metrics enabled
     deploy:
@@ -107,7 +107,7 @@ services:
   zkevm-prover:
     container_name: zkevm-prover
     restart: unless-stopped
-    image: hermeznetwork/zkevm-prover:v2.2.2
+    image: hermeznetwork/zkevm-prover:v3.0.2
     depends_on:
       zkevm-state-db:
         condition: service_healthy
